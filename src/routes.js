@@ -1,13 +1,13 @@
-//importando router para roteamento das rotas
+// importando router para roteamento das rotas
 import { Router } from 'express';
 
-//invocando o router
+// invocando o router
 const routes = new Router();
 
-//definindo rotas
+// definindo rotas
 routes.get('/', (req, res) => {
-  return res.json({ message: 'Hello World'});
-})
+  return res.json({ message: 'Hello World' });
+});
 
-//exportando configurações
+// exportando configurações
 export default routes;
