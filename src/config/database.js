@@ -3,7 +3,7 @@
 module.exports = {
   dialect: 'postgres',
   host: 'localhost',
-  username: 'desafio02',
+  username: 'postgres',
   password: 'desafio02',
   database: 'Meetapp',
   define: {

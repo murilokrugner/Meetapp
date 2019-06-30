@@ -4,6 +4,9 @@ import express from 'express';
 // importando arquivo de rotas
 import routes from './routes';
 
+// importando database
+import './database';
+
 // criando uma classe para configuração do servidor
 class App {
   constructor() {
