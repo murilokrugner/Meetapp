@@ -40,3 +40,4 @@ Para atualizar a senha, o usuário deve também enviar um campo de confirmação
 - Criptografe a senha do usuário para segurança.
 - Realize a validação dos dados de entrada;
 
+:)
