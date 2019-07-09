@@ -4,8 +4,8 @@ module.exports = {
   dialect: 'postgres',
   host: 'localhost',
   username: 'postgres',
-  password: 'desafio02',
-  database: 'Meetapp',
+  password: 'meetup',
+  database: 'Meetup',
   define: {
     timestamps: true,
     underscored: true,

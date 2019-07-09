@@ -27,7 +27,7 @@ class UserController {
 
     // retornando somente os campos necessarios
     const { id, name, email, provider } = await User.create(req.body);
-    console.log(userId);
+    //console.log(userId);
 
     return res.json({
       id,
