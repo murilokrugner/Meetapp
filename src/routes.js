@@ -11,6 +11,10 @@ import authMiddleware from './app/middlewares/auth';
 // importando constrollers
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import FileController from './app/controllers/FileController';
+import ProviderController from './app/controllers/ProviderController';
+import AppointmentController from './app/controllers/AppointmentController';
+import ScheduleController from './app/controllers/ScheduleController';
 
 // invocando o router
 const routes = new Router();
@@ -24,13 +28,23 @@ routes.post('/users', UserController.store);
 // rota para fazer login de usuario
 routes.post('/sessions', SessionController.store);
 
-// upload de arquivos
-routes.post('/files', upload.single('file'), (req, res) => {
-  return res.json({ ok: true });
-});
-
 // definindo middleware global
 routes.use(authMiddleware);
+
+// upload de arquivos
+routes.post('/files', upload.single('file'), FileController.store);
+
+// rota para listagem de usuarios
+routes.get('/providers', ProviderController.index);
+
+// rota para agendar o serviço
+routes.post('/appointments', AppointmentController.store);
+
+// rota para listar os agendamentos do usuario logado
+routes.get('/appointments', AppointmentController.index);
+
+// listar agenda do prestador de serviço
+routes.get('/schedule', ScheduleController.index);
 
 // rota para alterar dados usuario
 routes.put('/users', UserController.update);
