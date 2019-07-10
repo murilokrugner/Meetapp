@@ -15,6 +15,7 @@ import FileController from './app/controllers/FileController';
 import ProviderController from './app/controllers/ProviderController';
 import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
+import NotificationController from './app/controllers/NotificationController';
 
 // invocando o router
 const routes = new Router();
@@ -43,8 +44,17 @@ routes.post('/appointments', AppointmentController.store);
 // rota para listar os agendamentos do usuario logado
 routes.get('/appointments', AppointmentController.index);
 
+// cancelar agendamento
+routes.delete('/appointments/:id', AppointmentController.delete);
+
 // listar agenda do prestador de serviço
 routes.get('/schedule', ScheduleController.index);
+
+// listar notifcações do usuario
+routes.get('/notification', NotificationController.index);
+
+// marcar notificação como lida
+routes.put('/notification/:id', NotificationController.update);
 
 // rota para alterar dados usuario
 routes.put('/users', UserController.update);
