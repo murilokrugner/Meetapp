@@ -8,8 +8,18 @@ class Meetup extends Model {
         description: Sequelize.STRING,
         location: Sequelize.STRING,
         date: Sequelize.DATE,
-        image: Sequelize.INTEGER,
+        image: Sequelize.STRING,
+        path: Sequelize.STRING,
+        url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `http://localhost:3333/meetups/${this.path}`;
+         },
+        },
       },
+      {
+        sequelize,
+      }
       {
         sequelize,
       }
