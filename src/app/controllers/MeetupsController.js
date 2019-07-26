@@ -80,12 +80,29 @@ class MeetupsController {
 
     const { title, description, location, date } = await Meetups.update(req.body);
 
+    const hourStart = startOfHour(parseISO(date));
+
+    if (isBefore(hourStart, new Date())) {
+      return res.status(400).json({ error: 'You cannot change closed schedules '})
+    }
+
     const formattedDate = format(
       hourStart,
       "'dia' dd 'de' MMMM', às' H:mm'h'",
       { locale: pt }
     );
 
+      await Notification.create({
+        content: `Uma alteração foi feita para o evento de ${user.name}`,
+        user,
+      });
+
+      return res.json({
+        title,
+        description,
+        location,
+        date,
+      });
   }
 }
 

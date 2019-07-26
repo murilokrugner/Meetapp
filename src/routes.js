@@ -17,6 +17,7 @@ import AppointmentController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import MeetupsController from './app/controllers/MeetupsController';
+import ListMeetupsController from './app/controllers/ListMeetupsController';
 
 // invocando o router
 const routes = new Router();
@@ -62,6 +63,12 @@ routes.put('/users', UserController.update);
 
 // criar novo evento
 routes.post('/meetups', MeetupsController.store);
+
+// editar novo evento
+routes.put('/meetups', MeetupsController.update);
+
+// listar eventos do usuario logado
+routes.get('/meetups/list', ListMeetupsController.index);
 
 // exportando configurações
 export default routes;
